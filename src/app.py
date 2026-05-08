@@ -4,8 +4,6 @@ import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
 import plotly.express as px
-from streamlit_lottie import st_lottie
-import requests
 
 # ---------------------------------------------------
 # PAGE CONFIG
@@ -20,22 +18,6 @@ st.set_page_config(
 # LOAD MODEL
 # ---------------------------------------------------
 model = joblib.load("student_performance_model.pkl")
-
-# ---------------------------------------------------
-# LOAD LOTTIE ANIMATION
-# ---------------------------------------------------
-def load_lottie(url):
-
-    r = requests.get(url)
-
-    if r.status_code != 200:
-        return None
-
-    return r.json()
-
-lottie_ai = load_lottie(
-    "https://assets9.lottiefiles.com/packages/lf20_w51pcehl.json"
-)
 
 # ---------------------------------------------------
 # CUSTOM CSS
@@ -115,22 +97,15 @@ html, body, [class*="css"] {
 # ---------------------------------------------------
 # HEADER
 # ---------------------------------------------------
-col1, col2 = st.columns([2,1])
+st.markdown(
+    '<div class="main-title">🎓 Student Performance Prediction AI</div>',
+    unsafe_allow_html=True
+)
 
-with col1:
-
-    st.markdown(
-        '<div class="main-title">🎓 Student Performance Prediction AI</div>',
-        unsafe_allow_html=True
-    )
-
-    st.markdown(
-        '<div class="sub-title">Advanced Machine Learning Dashboard for Predicting Student GPA</div>',
-        unsafe_allow_html=True
-    )
-
-with col2:
-    st_lottie(lottie_ai, height=180)
+st.markdown(
+    '<div class="sub-title">Advanced Machine Learning Dashboard for Predicting Student GPA</div>',
+    unsafe_allow_html=True
+)
 
 # ---------------------------------------------------
 # SIDEBAR
