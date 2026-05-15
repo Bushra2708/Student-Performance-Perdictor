@@ -100,7 +100,7 @@ The application contains:
 Clone the repository:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/student-performance-ai.git
+git clone https://github.com/Bushra2708/Student-Performance-Perdictor
 ```
 
 Go to project folder:
